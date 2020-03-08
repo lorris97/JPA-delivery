@@ -5,10 +5,15 @@
  */
 package eu.ensup.DAO;
 
-import java.sql.ResultSet;
+import eu.ensup.BO.EnseignantBO;
+import eu.ensup.BO.EtudiantBO;
+import static java.lang.Math.E;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
+import java.util.List;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 
 /**
  *
@@ -17,27 +22,23 @@ import java.util.ArrayList;
 public class EnseignantDAO {
     
     
-     public int Connection(Statement stm, String nom , String password) throws ClassNotFoundException, SQLException {
+     public int Connection(String nom , String password) throws ClassNotFoundException, SQLException {
 	
+         EntityManagerFactory emf = Persistence.createEntityManagerFactory("demojpa-pu");
+        EntityManager em = emf.createEntityManager();
+
+        List<EtudiantBO> ListProfil;
+        ListProfil = em.createNativeQuery("SELECT * FROM `enseignant` WHERE nom = ? and password = ?", EnseignantBO.class)
+                .setParameter(1, nom)
+                .setParameter(2, password)
+                .getResultList();
+
+        em.close();
+        emf.close();
+
         
+        return ListProfil.size();
      
-                  int rep = 0;
-		try {
-
-			ResultSet res = stm.executeQuery("SELECT count(*) FROM `enseignant` WHERE nom = '"+nom+"' and password = '"+password+"'");
-
-			while (res.next()) {
-			rep = 	res.getInt("count(*)");
-				
-			}
-
-		}
-
-		catch (Exception e) {
-			System.out.println(e);
-		}
-                stm.close();
-		return rep;
 	}
 
     

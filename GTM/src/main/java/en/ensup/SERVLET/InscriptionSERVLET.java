@@ -39,14 +39,12 @@ public void doPost( HttpServletRequest request, HttpServletResponse response ) t
      bo.setNom ( request.getParameter("nom"));
      bo.setPrenom(request.getParameter("prenom"));
      bo.setEmail(request.getParameter("email"));
-     //bo.setDt_naiss(request.getParameter("date"));
      bo.setTelephone(request.getParameter("telephone"));
      bo.setAdresse(request.getParameter("adresse"));
      InscriptionSERVICE service = new InscriptionSERVICE();
         try {
             service.inscritpiton(bo);
             
-            //this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(InscriptionSERVLET.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {

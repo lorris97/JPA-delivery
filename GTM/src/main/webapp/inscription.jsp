@@ -58,13 +58,7 @@
                         </td>
                     </tr>                
 
-                    <tr>
-                        <td> Date de naissance</td>
-                        <td>
-                            <input type="date" id="date" name="date" />
-
-                        </td>
-                    </tr> 
+                   
                     <tr>
                         <td></td>
                         <td></td>

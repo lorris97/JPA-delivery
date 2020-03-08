@@ -5,19 +5,21 @@
  */
 package eu.ensup.BO;
 
+import java.util.ArrayList;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  *
  * @author lorris
  */
-
+@Table(name = "etudiant") 
 @Entity
 public class EtudiantBO extends PersonneBO{
-    
+            
     
      @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -27,8 +29,8 @@ public class EtudiantBO extends PersonneBO{
     private String email;
     private String adresse;
     private String telephone;
-    private String dt_naiss;
-
+    private ArrayList<CoursBO> listeCours;
+    
     public int getId() {
         return id;
     }
@@ -81,14 +83,13 @@ public class EtudiantBO extends PersonneBO{
         this.telephone = telephone;
     }
 
-    public String getDt_naiss() {
-        return dt_naiss;
+    public ArrayList<CoursBO> getListeCours() {
+        return listeCours;
     }
 
-    public void setDt_naiss(String dt_naiss) {
-        this.dt_naiss = dt_naiss;
+    public void setListeCours(ArrayList<CoursBO> listeCours) {
+        this.listeCours = listeCours;
     }
-    
     
     
     

@@ -10,67 +10,49 @@ import eu.ensup.CONNECTION.Connection;
 import eu.ensup.DAO.EtudiantDAO;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
  * @author lorris
  */
+
+
 public class EtudiantSERVICE {
-    
-    public ArrayList<EtudiantBO> liste() throws ClassNotFoundException, SQLException
-            
-    {
-         Connection con = new Connection();
-        Statement stm = con.Connect();
-         EtudiantDAO dao = new EtudiantDAO();
-     ArrayList<EtudiantBO> liste = new ArrayList<EtudiantBO>();
-     liste = dao.getList(stm);
-     stm.close();
-     
-     return liste;
-    }
-  
-     public ArrayList<EtudiantBO> getOneById(int id) throws ClassNotFoundException, SQLException 
-            
-    {
-         Connection con = new Connection();
-        Statement stm = con.Connect();
-         EtudiantDAO dao = new EtudiantDAO();
-     ArrayList<EtudiantBO> liste = new ArrayList<EtudiantBO>();
-     liste = dao.SearchByID(stm, id);
-     //stm.close();
-     
-     return liste;
-    }
-     
-     public void supprimerById(int id) throws ClassNotFoundException, SQLException
-     {
-         Connection con = new Connection();
-        Statement stm = con.Connect();
-         EtudiantDAO dao = new EtudiantDAO();
-        dao.DeleteProfil(stm, id);
-     stm.close();
-         
-     }
-    
-     
-     public void updateByID(EtudiantBO bo) throws ClassNotFoundException, SQLException
-     {
-         Connection con = new Connection();
-        Statement stm = con.Connect();
+
+    public List<EtudiantBO> liste() throws ClassNotFoundException, SQLException {
         EtudiantDAO dao = new EtudiantDAO();
-        dao.UpdateEtudiant(stm, bo);
-        stm.close();
-         
-     }
-     
-     public void lierEtudiantCours(int idEtu, int idCours) throws ClassNotFoundException, SQLException
-     {
-           Connection con = new Connection();
+        List<EtudiantBO> liste;
+        liste = dao.getList();
+
+        return liste;
+    }
+
+    public List<EtudiantBO> getOneById(int id) throws ClassNotFoundException, SQLException {
+        EtudiantDAO dao = new EtudiantDAO();
+        List<EtudiantBO> liste;
+        liste = dao.SearchByID(id);
+
+        return liste;
+    }
+
+    public void supprimerById(int id) throws ClassNotFoundException, SQLException {
+        EtudiantDAO dao = new EtudiantDAO();
+        dao.DeleteProfil(id);
+
+    }
+
+    public void updateByID(EtudiantBO bo) throws ClassNotFoundException, SQLException {
+        EtudiantDAO dao = new EtudiantDAO();
+        dao.UpdateEtudiant(bo);
+
+    }
+
+    public void lierEtudiantCours(int idEtu, int idCours) throws ClassNotFoundException, SQLException {
+        Connection con = new Connection();
         Statement stm = con.Connect();
-         EtudiantDAO etuDAO = new EtudiantDAO();
-         etuDAO.lierEtudiantCours(stm, idEtu, idCours);
-                 
-     }
+        EtudiantDAO etuDAO = new EtudiantDAO();
+        etuDAO.lierEtudiantCours(stm, idEtu, idCours);
+
+    }
 }

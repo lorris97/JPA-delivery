@@ -6,12 +6,12 @@
 <!DOCTYPE html>
 <html>
     <head>
-          <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" >
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" >
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
     </head>
     <body>
-      <table class="table table-striped table-dark">
+        <table class="table table-striped table-dark">
             <thead>     
                 <tr>
                     <th>Matiere </th>
@@ -26,33 +26,49 @@
                 <tbody>
                     <tr>
                         <td> ${cours.theme}</td>
-                <td>${cours.heures}</td>
-                <td>
-                    <input type="checkbox" id="cours" name="scales" checked>
-                </td>
-                
+                        <td>${cours.heures}</td>
+                        <td>
+                            <input type="checkbox" id="cour${cours.id}" name="scales" checked>
+                        </td>
+
+                    </tr>
+                </tbody>
+            </c:forEach>
+            <tr>
+
             </tr>
-        </tbody>
-    </c:forEach>
-        <tr>
-           
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>
-            <form method="post" action="menu">
-                           
-                                    
-                                <input type="submit" class="btn btn-light" value="Retour accueil"/>
-                            
-                             </form>
-            <td>
-        </tr>
-</table>
+            <tr>
+
+                <td></td>
+                <td></td>
+                <td>
+                    <form method="post" action="lier" name="lierForm">
+
+
+                        <input class="btn btn-light" value="Valider" onclick="check()"/>
+
+                    </form>
+                </td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>
+                    <form method="post" action="menu">
+
+
+                        <input type="submit" class="btn btn-light" value="Retour accueil"/>
+
+                    </form>
+                <td>
+            </tr>
+        </table>
     </body>
 </html>
+<script>
+    function check() {
+        
+    document.getElementById("cour1").checked = true;
+    document.getElementById("lierForm").submit();
+}
+    
+</script>

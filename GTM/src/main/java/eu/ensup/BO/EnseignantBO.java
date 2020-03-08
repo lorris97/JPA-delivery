@@ -5,12 +5,25 @@
  */
 package eu.ensup.BO;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
  *
  * @author lorris
  */
-public class EnseignantBO extends PersonneBO{
-    
+@Table(name = "enseignant")
+@Entity
+public class EnseignantBO extends PersonneBO {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
+    private String nom;
+    private String password;
     private String matiereEnseigne;
 
     public String getMatiereEnseigne() {
@@ -20,6 +33,21 @@ public class EnseignantBO extends PersonneBO{
     public void setMatiereEnseigne(String matiereEnseigne) {
         this.matiereEnseigne = matiereEnseigne;
     }
+    
+    
+    
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public EnseignantBO() {
+    }
+
     
     
 }

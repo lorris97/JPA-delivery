@@ -61,17 +61,7 @@
                         </td>
                     </tr>                
 
-                    <tr>
-                        <td> Date de naissance</td>
-                        <td>
-                            <input type="date" id="date" name="date" />
-
-                        </td>
-                    </tr> 
-                    <tr>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                   
                     <tr>
                         <td></td>
                         <td>    
@@ -81,7 +71,7 @@
                              <input id="email" name="email" type="hidden" value="${etudiant.email}">       
                              <input id="adresse" name="adresse" type="hidden" value="${etudiant.adresse}">       
                              <input id="telephone" name="telephone" type="hidden" value="${etudiant.adresse}">     
-                            <input class="btn btn-light" type="submit" value="Modifier" class="sansLabel" />
+                            <input class="btn btn-light" type="submit" value="Valider" class="sansLabel" />
                         </td>
                     </tr>
                     

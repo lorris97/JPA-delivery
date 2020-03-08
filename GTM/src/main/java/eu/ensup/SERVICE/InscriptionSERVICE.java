@@ -26,11 +26,8 @@ public class InscriptionSERVICE {
     
     public void inscritpiton(EtudiantBO bo) throws ClassNotFoundException, SQLException
     {
-        Connection con = new Connection();
-        Statement stm = con.Connect();
         EtudiantDAO dao = new EtudiantDAO();
-        dao.InsertNewEtudiant(stm, bo);
-        stm.close();
+        dao.InsertNewEtudiant(bo);
     }
             
     

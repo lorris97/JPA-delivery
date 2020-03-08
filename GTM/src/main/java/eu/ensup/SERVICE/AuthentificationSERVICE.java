@@ -20,11 +20,8 @@ public class AuthentificationSERVICE {
     public boolean connection(String nom, String password ) throws ClassNotFoundException, SQLException
     {
         boolean connection = false;
-          Connection con = new Connection();
-        Statement stm = con.Connect();
         EnseignantDAO  dao = new EnseignantDAO();
-       int res =  dao.Connection(stm, nom, password);
-        stm.close();
+       int res =  dao.Connection( nom, password);
        if(res != 0 )
        {
            connection = true;

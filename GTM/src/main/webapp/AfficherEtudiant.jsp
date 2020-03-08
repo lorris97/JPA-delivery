@@ -42,7 +42,9 @@
                         <th>
                             Action
                         </th>
-
+                        <th>
+                            Action
+                        </th>
                     </tr>
                 </thead>
 
